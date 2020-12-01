@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
+    <link href="fontawesome/css/all.min.css" rel="stylesheet" />
+    <link href="css/style2.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <title>Ploile torențiale</title>
+</head>
+<header>
+    
+</header>
+<body>
+    <!-- Back to top button -->
+    <a id="button"><i class="fas fa-angle-up fa-2x"></i></a>
+    <div class="container-fluid">
+        </div>
+        <section class="tm-mb-1" id="about">
+            <div class="tm-row tm-about-row">
+                <div class="tm-section-1-l">
+                    <video autoplay muted loop id="myVideo">
+                        <source src="rain.mp4" type="video/mp4">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                <article class="tm-section-1-r tm-bg-color-8">
+                    <h2 class="tm-mb-2 tm-title-color">Inundațiile și stricăciunile acestora!</h2>
+                    <p><a rel="nofollow" href=" target="_parent">Aceste</a> problemă este existentă de multă vreme. În timpul unei ploi torențiale, din cauza lipsei de canalizații trotuarele și autostrăzile sunt blocate de șuvoaie de apă, dar cel mai rău lucru este că acestea sunt distruse de către ploaie.</p>
+                    <p>Unele persoane care au locuința lângă autostrazi și se folosesc de sistemul pentru Deșeuri și depozitează sacii în fața porților au un minus imens, de exemplu dacă ploaia este torențială și vine un șuvoi imens, efectiv gunoaiele vor pluti pe drum, aducând un miros urât și poluarea mediului, multă apă se scurge în râul Mereni.</p>
+                    <p>Acest lucru afectează în primul rând cetățenii satului Mereni, mulți copii au impedimente să meargă la școală sau pur și simplu când au nevoie să se deplaseze. </p>
+                    <p>Există soluții oare pentru acestă problema? Da!</p>
+                    
+                    <a href="#services" class="tm-btn tm-btn-1 tm-link-to-services">Soluții</a>
+                </article>
+            </div>
+        <section class="tm-mb-1 tm-row tm-services-row" id="services">
+            <div class="tm-section-2-l">
+                <article class="tm-bg-color-6 tm-box-pad tm-mb-1">
+                    <h2 class="tm-mb-2">Soluția cea mai eficientă!</h2>
+                    <p>Crearea unor canalizăți pluviale prin care să se scurgă apa, acestea să fie amplasate la câțiva metri una de alta, apa să meargă către o stație de epurare și să fie filtrată, aceasta poate fi scursă înapoi în natură. Aici putem să punem și topirea zăpezi.</p>
+                </article>
+                <div class="tm-bg-color-7 tm-em-box">
+                    <h2 class=tm-mb-2">Unele conducte ar putea...</h2>
+                    <p class="tm-text-color-2">merge către un bazin și această apă de ploaie poate fi utilizată și în agricultură.</p>
+                    <p class="tm-text-color-2">Un exemplu este Salamer, care are canalizații pluviale și folosește apa în agricultură. Apa de ploaie dar și cea utilizată în fabrică.</p>
+                </div>
+            </div>
+            <div class="tm-section-2-r">
+                <img src="img/canalizare.jpg" alt="Services image" class="tm-img-responsive">
+            </div>
+        </section>
+    </div> <!-- .container -->
+    <script src="js/jquery.min.js"></script> <!-- https://jquery.com/download/ -->
+    <script src="js/imagesloaded.pkgd.min.js"></script> <!-- https://imagesloaded.desandro.com/ -->
+    <script src="js/isotope.pkgd.min.js"></script> <!-- https://isotope.metafizzy.co/ -->
+    <script src="js/jquery.singlePageNav.min.js"></script> <!-- https://github.com/ChrisWojcik/single-page-nav -->
+    <script>
+
+        // Scroll to Top button
+        var btn = $('#button');
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+        });
+
+        btn.on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, '300');
+        });
+
+        // DOM is ready
+        $(function () {
+            // Single Page Nav
+            $('#tm-nav').singlePageNav({ speed: 600 });
+
+            // Smooth Scroll (https://css-tricks.com/snippets/jquery/smooth-scrolling/)
+            $('a[href*="#"]')
+                // Remove links that don't actually link to anything
+                .not('[href="#"]')
+                .not('[href="#0"]')
+                .click(function (event) {
+                    // On-page links
+                    if (
+                        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                        &&
+                        location.hostname == this.hostname
+                    ) {
+                        // Figure out element to scroll to
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        // Does a scroll target exist?
+                        if (target.length) {
+                            // Only prevent default if animation is actually gonna happen
+                            event.preventDefault();
+                            $('html, body').animate({
+                                scrollTop: target.offset().top
+                            }, 600, function () {
+                                // Callback after animation
+                                // Must change focus!
+                                var $target = $(target);
+                                $target.focus();
+                                if ($target.is(":focus")) { // Checking if the target was focused
+                                    return false;
+                                } else {
+                                    $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                    $target.focus(); // Set focus again
+                                };
+                            });
+                        }
+                    }
+                });
+
+            /* Isotope Gallery */
+
+
+            $(".tabgroup > div").hide();
+            $(".tabgroup > div:first-of-type").show();
+            $(".tabs a").click(function (e) {
+                e.preventDefault();
+                var $this = $(this),
+                    tabgroup = "#" + $this.parents(".tabs").data("tabgroup"),
+                    others = $this
+                        .closest("li")
+                        .siblings()
+                        .children("a"),
+                    target = $this.attr("href");
+                others.removeClass("active");
+                $this.addClass("active");
+            });
+        });
+    </script>
+</body>
+</html>
